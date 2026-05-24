@@ -35,7 +35,7 @@
     <ClCompile Include="zip.c" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <VCProjectVersion>16.0</VCProjectVersion>
+    <VCProjectVersion>17.0</VCProjectVersion>
     <ProjectGuid>{1722F02C-911E-44E4-8613-37AB98D08C22}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>GHOffsetDumper</RootNamespace>
