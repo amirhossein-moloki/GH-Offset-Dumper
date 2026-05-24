@@ -15,9 +15,21 @@ A modernized signature scanner that works with any game. This tool can very quic
 ## **How to Use It**
 
 1. Run the game.
-2. If the game uses the source engine, you should run `GH-Offset-Dumper-64.exe` if the game is 64 bits, or `GH-Offset-Dumper-32.exe` if the game is 32 bits; otherwise, netvars will not be dumped. If the game does not use the source engine, you can use either one.
+2. If the game uses the source engine, you should run `GH-Offset-Dumper-x64.exe` if the game is 64 bits, or `GH-Offset-Dumper-x86.exe` if the game is 32 bits; otherwise, netvars will not be dumped. If the game does not use the source engine, you can use either one.
 3. Drag and drop your `config.json` on the exe.
 4. Include the generated `.hpp` file in your project.
+
+## **Development**
+
+### **Visual Studio 2022**
+This project has been updated to support Visual Studio 2022 (v143 toolset). Simply open `GH-Offset-Dumper.sln` and build.
+
+### **VS Code**
+CMake support has been added for a better experience in VS Code.
+1. Install the **C/C++** and **CMake Tools** extensions.
+2. Open the project folder in VS Code.
+3. Select the `Visual Studio Community 2022 Release - amd64` (or similar) kit.
+4. Build the project using the CMake extension.
 
 ## **How to Dump From Disk**
 
