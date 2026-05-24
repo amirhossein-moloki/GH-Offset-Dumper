@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.35931.194
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GH-Offset-Dumper-Lib", "src\dumper-lib\GH-Offset-Dumper-Lib.vcxproj", "{1722F02C-911E-44E4-8613-37AB98D08C22}"
 EndProject

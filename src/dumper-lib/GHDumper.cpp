@@ -171,13 +171,18 @@ namespace gh
 			for (auto& e : config["signatures"])
 				if (std::string(e["name"]) == signatureName)
 					return e;
+			return {};
 		}
 
 		nlohmann::json FindNetvarJSON(nlohmann::json& config, std::string netvarName)
 		{
-			for (auto& e : config["netvars"])
-				if (std::string(e["name"]) == netvarName)
-					return e;
+			if (config.contains("netvars"))
+			{
+				for (auto& e : config["netvars"])
+					if (std::string(e["name"]) == netvarName)
+						return e;
+			}
+			return {};
 		}
 	} // internal namespace
 
@@ -1036,7 +1041,7 @@ namespace gh
 
 		// create output directory
 		std::string output_dir = config["filename"].get<std::string>() + "/";
-		std::filesystem::create_directory(output_dir);
+		std::filesystem::create_directories(output_dir);
 		
 		// save files
 		saveFile(config, hpp, "hpp");

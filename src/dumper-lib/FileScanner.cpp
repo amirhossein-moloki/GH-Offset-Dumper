@@ -10,12 +10,17 @@ std::vector<std::byte> FileScanner::ReadBytes(const std::string& fp)
         return std::vector<std::byte>();
     }
 
-    std::vector<char> buffer((std::istreambuf_iterator<char>(file_stream)),
-        std::istreambuf_iterator<char>());
+    std::vector<std::byte> result;
+    file_stream.seekg(0, std::ios::end);
+    std::streamsize size = file_stream.tellg();
+    file_stream.seekg(0, std::ios::beg);
 
-    std::vector<std::byte> result(buffer.size());
-    std::transform(buffer.begin(), buffer.end(), result.begin(),
-        [] (char c) { return static_cast<std::byte>(c); });
+    if (size > 0)
+    {
+        result.resize(static_cast<size_t>(size));
+        file_stream.read(reinterpret_cast<char*>(result.data()), size);
+    }
+
     return result;
 }
 
@@ -35,7 +40,7 @@ FileScanner::FileScanner(const std::string& filePath, const DynamicMoudleArray& 
 
 void FileScanner::decon()
 {
-    for (auto& it = this->mappedFiles.begin(); it != this->mappedFiles.end(); it++)
+    for (auto it = this->mappedFiles.begin(); it != this->mappedFiles.end(); ++it)
     {
         it->second.Release();
     }
