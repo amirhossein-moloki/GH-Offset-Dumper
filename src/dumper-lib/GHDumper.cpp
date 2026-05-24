@@ -47,10 +47,13 @@ namespace gh
 				if (ishex(*combo))
 				{
 					if (ishex(combo[1]))
-						byte = hexchartoint(*combo) | (hexchartoint(*(combo++)) << 4);
+					{
+						byte = (hexchartoint(*combo) << 4) | hexchartoint(combo[1]);
+						combo++;
+					}
 					else
 						byte = hexchartoint(*combo);
-					pattern += byte;
+					pattern += (char)byte;
 					mask += 'x';
 				}
 				else if (*combo == '?')
